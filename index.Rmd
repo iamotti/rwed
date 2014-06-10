@@ -18,12 +18,19 @@ mode        : selfcontained # {standalone, draft}
 
 --- .class #id 
 
-## Slide 2
+## The second slide
+
+Edit YAML front matter
+Write using R Markdown
+Use an empty line followed by three dashes to separate slides!
+
+---
+
+## The third slide
 
 > Edit YAML front matter
 > Write using R Markdown
 > Use an empty line followed by three dashes to separate slides!
 
 ---
-
 
