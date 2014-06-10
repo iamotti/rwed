@@ -24,6 +24,6 @@ mode        : selfcontained # {standalone, draft}
 > Write using R Markdown
 > Use an empty line followed by three dashes to separate slides!
 
-
+---
 
 
