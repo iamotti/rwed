@@ -28,9 +28,9 @@ Use an empty line followed by three dashes to separate slides!
 
 ## The third slide
 
-> Edit YAML front matter
-> Write using R Markdown
-> Use an empty line followed by three dashes to separate slides!
+> 1. Edit YAML front matter
+> 2. Write using R Markdown
+> 3. Use an empty line followed by three dashes to separate slides!
 
 ---
 
