@@ -2,7 +2,7 @@
 title       : Weekend with R
 subtitle    : Hot Ideas about R
 author      : Levente Otti
-job         : R hacker
+job         : R Hacker
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : tomorrow      # 
@@ -18,8 +18,19 @@ mode        : selfcontained # {standalone, draft}
 
 --- .class #id 
 
-## Slide 2
+## The second slide
 
+Edit YAML front matter
+Write using R Markdown
+Use an empty line followed by three dashes to separate slides!
 
+---
 
+## The third slide
+
+> Edit YAML front matter
+> Write using R Markdown
+> Use an empty line followed by three dashes to separate slides!
+
+---
 
