@@ -40,7 +40,18 @@ mode        : selfcontained # {standalone, draft}
 > 4. Many special cases
 > 5. R is not fast, easy to write terribly slow code with profligate memory usage
 > 6. All the above is a challenge for us
+
 ---
 
+## Quick example
+
+```{r results='asis', echo=FALSE, message=FALSE, tidy=FALSE}
 library(ggplot2)
 qplot(speed, dist, data = cars) + geom_smooth()
+```
+---
+
+## Quick example 2
+
+```
+---
