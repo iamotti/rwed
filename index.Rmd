@@ -49,9 +49,10 @@ mode        : selfcontained # {standalone, draft}
 library(ggplot2)
 qplot(speed, dist, data = cars) + geom_smooth()
 ```
+
 ---
 
 ## Quick example 2
 
-```
+2 example
 ---

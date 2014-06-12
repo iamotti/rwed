@@ -30,3 +30,4 @@ GTM <- gvisMerge(GT, M, horizontal=TRUE,
                  tableOptions="cellspacing=5", chartid="gtm")
 
 print(GTM, 'chart')
+```
