@@ -43,3 +43,11 @@ mode        : selfcontained # {standalone, draft}
 
 ---
 
+## Quick example
+
+```{r results='asis', echo=FALSE, message=FALSE, tidy=FALSE}
+library(ggplot2)
+qplot(speed, dist, data = cars) + geom_smooth()
+```
+
+---
