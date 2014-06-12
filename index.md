@@ -8,6 +8,9 @@ highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : tomorrow      # 
 widgets     : []            # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft}
+github      :
+  user: iamotti
+  repo: rwed
 ---
 
 ## What is R?
@@ -89,7 +92,7 @@ read.table <- function (file, header = FALSE, sep = "", quote = "\"'", dec = "."
 
 ## Example: GoogleVis a more complex example
 <!-- GeoChart generated in R 3.1.0 by googleVis 0.5.2 package -->
-<!-- Fri Jun 13 01:42:12 2014 -->
+<!-- Fri Jun 13 01:47:27 2014 -->
 
 
 <!-- jsHeader -->
