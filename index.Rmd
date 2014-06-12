@@ -43,11 +43,88 @@ mode        : selfcontained # {standalone, draft}
 
 ---
 
-## Quick example
+## Example: Simple Correlation 
 
-```{r results='asis', echo=FALSE, message=FALSE, tidy=FALSE}
+```{r results='asis', echo=TRUE, message=FALSE, tidy=FALSE}
 library(ggplot2)
 qplot(speed, dist, data = cars) + geom_smooth()
 ```
+
+---
+
+## Example: Con - read.table
+Readability, speed, hidden features (first column), ...
+```{r results='asis', echo=TRUE, message=FALSE, tidy=FALSE}
+read.table <- function (file, header = FALSE, sep = "", quote = "\"'", dec = ".", 
+  row.names, col.names, as.is = !stringsAsFactors, na.strings = "NA", 
+  colClasses = NA, nrows = -1, skip = 0, check.names = TRUE, 
+  fill = !blank.lines.skip, strip.white = FALSE, blank.lines.skip = TRUE, 
+  comment.char = "#", allowEscapes = FALSE, flush = FALSE, 
+  stringsAsFactors = default.stringsAsFactors(), fileEncoding = "", 
+  encoding = "unknown", text, skipNul = FALSE) 
+{
+  if (missing(file) && !missing(text)) {
+    file <- textConnection(text, encoding = "UTF-8")
+    encoding <- "UTF-8"
+    on.exit(close(file))
+  }
+  if (is.character(file)) {
+    file <- if (nzchar(fileEncoding)) 
+      file(file, "rt", encoding = fileEncoding)
+    else file(file, "rt")
+    on.exit(close(file))
+  }}
+...
+```
+
+---
+
+## Example: GoogleVis a more complex example
+```{r results='asis', echo=FALSE, message=FALSE, tidy=FALSE}
+library(googleVis)
+G <- gvisGeoChart(Exports, "Country", "Profit", 
+                  options=list(width=250, height=120), chartid="c1")
+ 
+T <- gvisBarChart(Exports[,1:2], yvar="Profit", xvar="Country",                  
+                  options=list(width=250, height=260, 
+                               legend='none'), chartid="c2")
+ 
+GT <- gvisMerge(G,T, horizontal=FALSE, chartid="gt") 
+ 
+## Tree map
+ 
+M <- gvisTreeMap(Regions,  "Region", "Parent", "Val", "Fac",
+                    options=list(width=400, height=380,
+                                 fontSize=16,
+                                 minColor='#EDF8FB',
+                                 midColor='#66C2A4',
+                                 maxColor='#006D2C',
+                                 headerHeight=20,
+                                 fontColor='black',
+                                 showScale=TRUE), chartid="c3")
+ 
+GTM <- gvisMerge(GT, M, horizontal=TRUE,
+                     tableOptions="cellspacing=5", chartid="gtm")
+ 
+print(GTM, 'chart')
+```
+
+---
+
+## Example: Song Kata - Tests
+  Tests
+
+---
+
+## Example: GoogleVis vs HDS 
+> 1. Aggregated by hour (request time, partition, filter count)
+http://127.0.0.1:25127/custom/googleVis/MotionChartID22f6573927b.html
+> 2. Aggregated by day (filter count, time, line chart)
+http://127.0.0.1:25127/custom/googleVis/MotionChartID22f695fd46.html
+
+---
+
+## Example: Interactivity
+  http://ottawa:5507/
 
 ---

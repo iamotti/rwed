@@ -3,31 +3,14 @@ install.packages('googleVis')
 
 
 
-```{r results='asis', echo=FALSE, message=FALSE, tidy=FALSE}
+read.table
+
+
+---
+  
+  ## Example: GoogleVis 
+  ```{r results='asis', echo=TRUE, message=FALSE, tidy=FALSE}
 library(googleVis)
-G <- gvisGeoChart(Exports, "Country", "Profit", 
-                  options=list(width=250, height=120), chartid="c1")
-
-T <- gvisBarChart(Exports[,1:2], yvar="Profit", xvar="Country",                  
-                  options=list(width=250, height=260, 
-                               legend='none'), chartid="c2")
-
-GT <- gvisMerge(G,T, horizontal=FALSE, chartid="gt") 
-
-## Tree map
-
-M <- gvisTreeMap(Regions,  "Region", "Parent", "Val", "Fac",
-                 options=list(width=400, height=380,
-                              fontSize=16,
-                              minColor='#EDF8FB',
-                              midColor='#66C2A4',
-                              maxColor='#006D2C',
-                              headerHeight=20,
-                              fontColor='black',
-                              showScale=TRUE), chartid="c3")
-
-GTM <- gvisMerge(GT, M, horizontal=TRUE,
-                 tableOptions="cellspacing=5", chartid="gtm")
-
-print(GTM, 'chart')
+M1 = gvisMotionChart(Fruits, idvar='Fruit', timevar='Year')
+print(M1, tag='chart')
 ```
