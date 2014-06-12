@@ -43,13 +43,3 @@ mode        : selfcontained # {standalone, draft}
 
 ---
 
-## Quick example
-
-![plot of chunk unnamed-chunk-1](figure/unnamed-chunk-1.png) 
-
----
-
-## Quick example 2
-
-2 example
----
