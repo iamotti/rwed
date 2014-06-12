@@ -34,9 +34,13 @@ mode        : selfcontained # {standalone, draft}
 
 ## Cons
 
-> 1. 
-> 2. 
-> 3. 
-
+> 1. Most R users are not programmers (code is not very elegant, fast or easy to understand)
+> 2. Focus on result instead of process (lack of VCS, TDD)
+> 3. Inconsistency is rife across contributed packages, even within base R (20 years)
+> 4. Many special cases
+> 5. R is not fast, easy to write terribly slow code with profligate memory usage
+> 6. All the above is a challenge for us
 ---
 
+library(ggplot2)
+qplot(speed, dist, data = cars) + geom_smooth()
