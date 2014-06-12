@@ -26,7 +26,9 @@ mode        : selfcontained # {standalone, draft}
 > 3. Fantastic community (mailing lists, stackoverflow, BURN, ...)
 > 4. Powerful tools for communicating the results, html, reports, interactive websites...
 > 5. Strong foundation in functioanal proramming
-> 6. "Everything" integrated and easy to use 
+> 6. Powerful IDE for interactive data analysis and statistical programming
+> 7. Designed to connect to high-performance programming languages like C++ 
+> 8. "Everything" integrated and easy to use => quick results
 
 ---
 
