@@ -81,18 +81,13 @@ read.table <- function (file, header = FALSE, sep = "", quote = "\"'", dec = "."
     else file(file, "rt")
     on.exit(close(file))
   }}
-...
-```
-
-```
-## Error: '...' used in an incorrect context
 ```
 
 ---
 
 ## Example: GoogleVis a more complex example
 <!-- GeoChart generated in R 3.1.0 by googleVis 0.5.2 package -->
-<!-- Fri Jun 13 01:47:27 2014 -->
+<!-- Fri Jun 13 01:53:29 2014 -->
 
 
 <!-- jsHeader -->

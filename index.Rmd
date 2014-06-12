@@ -77,7 +77,6 @@ read.table <- function (file, header = FALSE, sep = "", quote = "\"'", dec = "."
     else file(file, "rt")
     on.exit(close(file))
   }}
-...
 ```
 
 ---

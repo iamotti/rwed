@@ -14,3 +14,5 @@ library(googleVis)
 M1 = gvisMotionChart(Fruits, idvar='Fruit', timevar='Year')
 print(M1, tag='chart')
 ```
+
+getwd()
