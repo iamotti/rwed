@@ -127,6 +127,7 @@ http://127.0.0.1:25127/custom/googleVis/MotionChartID22f695fd46.html
 ---
 
 ## Example: Interactivity
-1. http://ottawa:5507
+> 1. Interactive web site with Shiny
+http://ottawa:5507
 
 ---

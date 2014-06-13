@@ -87,7 +87,7 @@ read.table <- function (file, header = FALSE, sep = "", quote = "\"'", dec = "."
 
 ## Example: GoogleVis a more complex example
 <!-- GeoChart generated in R 3.1.0 by googleVis 0.5.2 package -->
-<!-- Fri Jun 13 01:58:19 2014 -->
+<!-- Fri Jun 13 02:01:19 2014 -->
 
 
 <!-- jsHeader -->
@@ -526,6 +526,7 @@ http://127.0.0.1:25127/custom/googleVis/MotionChartID22f695fd46.html
 ---
 
 ## Example: Interactivity
-1. http://ottawa:5507
+> 1. Interactive web site with Shiny
+http://ottawa:5507
 
 ---
