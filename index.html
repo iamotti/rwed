@@ -153,7 +153,7 @@ qplot(speed, dist, data = cars) + geom_smooth()
   <article data-timings="">
     <!-- GeoChart generated in R 3.1.0 by googleVis 0.5.2 package -->
 
-<!-- Fri Jun 13 02:01:19 2014 -->
+<!-- Fri Jun 13 08:15:57 2014 -->
 
 <!-- jsHeader -->
 
@@ -585,16 +585,77 @@ callbacks.shift()();
 
 <slide class="" id="slide-7" style="background:;">
   <hgroup>
-    <h2>Example: Song Kata - Tests</h2>
+    <h2>Example: Song Kata - Test</h2>
   </hgroup>
   <article data-timings="">
-    <p>Tests</p>
+    <pre><code class="r">library(testthat)
+context (&quot;Complex example&quot;)
+
+input &lt;- &quot;
+    15 3
+    197812 re_hash
+    78906 5_4
+    189518 tomorrow_comes_today 
+  &quot;
+
+test_that(&quot;output contains the list of zips songs for 14 rows&quot;, {
+  output &lt;- as.data.frame(read.table(header = FALSE, col.names=c(&quot;name&quot;), text = &quot;
+    19_2000
+    clint_eastwood
+    tomorrow_comes_today
+  &quot;))
+  expect_that(get_zips_songs_list(input), equals(output))
+})
+</code></pre>
+
+<pre><code>## Error: Test failed: &#39;output contains the list of zips songs for 14 rows&#39;
+## Not expected: could not find function &quot;get_zips_songs_list&quot;
+## 1: expect_that(get_zips_songs_list(input), equals(output)) at &lt;text&gt;:17
+## 2: condition(object)
+## 3: compare(expected, actual, ...)
+## 4: compare.default(expected, actual, ...)
+## 5: all.equal(x, y, ...)
+## 6: all.equal.default(x, y, ...)
+## 7: all.equal.list(target, current, ...)
+## 8: attr.all.equal(target, current, ...)
+## 9: mode(current).
+</code></pre>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
 <slide class="" id="slide-8" style="background:;">
+  <hgroup>
+    <h2>Example: Song Kata - Source</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">get_zips_songs_list &lt;- function (input) {
+  result_count &lt;- get_number_of_result_list(input)
+  data &lt;- read_input_into_dataframe(input)
+
+  data$i &lt;- as.numeric(rownames(data))
+  data$qi &lt;- data$fi/(1/data$i)
+  head(arrange(data, desc(qi), i) %.% select(name),result_count)
+}
+
+
+get_number_of_result_list &lt;- function (input) {
+  as.numeric(as.character(as.data.frame(read.table(header = FALSE, text = input))[1,2]))
+}
+
+
+
+read_input_into_dataframe &lt;- function(input) {
+  as.data.frame(read.table(header = FALSE, text = input, col.names=c(&quot;fi&quot;,&quot;name&quot;), skip=2))
+}
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-9" style="background:;">
   <hgroup>
     <h2>Example: GoogleVis vs HDS</h2>
   </hgroup>
@@ -610,21 +671,47 @@ callbacks.shift()();
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-9" style="background:;">
+<slide class="" id="slide-10" style="background:;">
   <hgroup>
     <h2>Example: Interactivity</h2>
   </hgroup>
   <article data-timings="">
     <ol class = "build incremental">
 <li>Interactive web site with Shiny
-http://ottawa:5507</li>
+http://ottawa:5507 (<a href="http://192.168.8.24:5507">http://192.168.8.24:5507</a>)</li>
 </ol>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-10" style="background:;">
+<slide class="" id="slide-11" style="background:;">
+  <hgroup>
+    <h2>References</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>Hadley Wickham - Advanced R Programming (<a href="http://adv-r.had.co.nz/">http://adv-r.had.co.nz/</a>)</li>
+<li>Ramnathv - Slidify (<a href="http://slidify.org/">http://slidify.org/</a>)</li>
+<li>RStudio - Shiny (<a href="http://shiny.rstudio.com/">http://shiny.rstudio.com/</a>) </li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-12" style="background:;">
+  <hgroup>
+    <h2>Questions</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>and Answers</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-13" style="background:;">
   <article data-timings="">
     
   </article>
@@ -673,26 +760,44 @@ http://ottawa:5507</li>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=7 title='Example: Song Kata - Tests'>
+        data-slide=7 title='Example: Song Kata - Test'>
          7
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=8 title='Example: GoogleVis vs HDS'>
+        data-slide=8 title='Example: Song Kata - Source'>
          8
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=9 title='Example: Interactivity'>
+        data-slide=9 title='Example: GoogleVis vs HDS'>
          9
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=10 title=''>
+        data-slide=10 title='Example: Interactivity'>
          10
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=11 title='References'>
+         11
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=12 title='Questions'>
+         12
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=13 title=''>
+         13
       </a>
     </li>
   </ul>

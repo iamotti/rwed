@@ -87,7 +87,7 @@ read.table <- function (file, header = FALSE, sep = "", quote = "\"'", dec = "."
 
 ## Example: GoogleVis a more complex example
 <!-- GeoChart generated in R 3.1.0 by googleVis 0.5.2 package -->
-<!-- Fri Jun 13 02:01:19 2014 -->
+<!-- Fri Jun 13 08:15:57 2014 -->
 
 
 <!-- jsHeader -->
@@ -512,8 +512,68 @@ callbacks.shift()();
 
 ---
 
-## Example: Song Kata - Tests
-  Tests
+## Example: Song Kata - Test
+
+```r
+library(testthat)
+context ("Complex example")
+
+input <- "
+    15 3
+    197812 re_hash
+    78906 5_4
+    189518 tomorrow_comes_today 
+  "
+
+test_that("output contains the list of zips songs for 14 rows", {
+  output <- as.data.frame(read.table(header = FALSE, col.names=c("name"), text = "
+    19_2000
+    clint_eastwood
+    tomorrow_comes_today
+  "))
+  expect_that(get_zips_songs_list(input), equals(output))
+})
+```
+
+```
+## Error: Test failed: 'output contains the list of zips songs for 14 rows'
+## Not expected: could not find function "get_zips_songs_list"
+## 1: expect_that(get_zips_songs_list(input), equals(output)) at <text>:17
+## 2: condition(object)
+## 3: compare(expected, actual, ...)
+## 4: compare.default(expected, actual, ...)
+## 5: all.equal(x, y, ...)
+## 6: all.equal.default(x, y, ...)
+## 7: all.equal.list(target, current, ...)
+## 8: attr.all.equal(target, current, ...)
+## 9: mode(current).
+```
+
+---
+
+## Example: Song Kata - Source
+
+```r
+get_zips_songs_list <- function (input) {
+  result_count <- get_number_of_result_list(input)
+  data <- read_input_into_dataframe(input)
+  
+  data$i <- as.numeric(rownames(data))
+  data$qi <- data$fi/(1/data$i)
+  head(arrange(data, desc(qi), i) %.% select(name),result_count)
+}
+
+
+get_number_of_result_list <- function (input) {
+  as.numeric(as.character(as.data.frame(read.table(header = FALSE, text = input))[1,2]))
+}
+
+
+
+read_input_into_dataframe <- function(input) {
+  as.data.frame(read.table(header = FALSE, text = input, col.names=c("fi","name"), skip=2))
+}
+```
 
 ---
 
@@ -527,6 +587,18 @@ http://127.0.0.1:25127/custom/googleVis/MotionChartID22f695fd46.html
 
 ## Example: Interactivity
 > 1. Interactive web site with Shiny
-http://ottawa:5507
+http://ottawa:5507 (http://192.168.8.24:5507)
+
+---
+
+## References
+1. Hadley Wickham - Advanced R Programming (http://adv-r.had.co.nz/)
+2. Ramnathv - Slidify (http://slidify.org/)
+3. RStudio - Shiny (http://shiny.rstudio.com/) 
+
+---
+
+## Questions
+and Answers
 
 ---

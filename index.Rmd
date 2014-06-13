@@ -113,8 +113,52 @@ print(GTM, 'chart')
 
 ---
 
-## Example: Song Kata - Tests
-  Tests
+## Example: Song Kata - Test
+```{r results='asis', echo=TRUE, message=FALSE, tidy=FALSE}
+library(testthat)
+context ("Complex example")
+
+input <- "
+    15 3
+    197812 re_hash
+    78906 5_4
+    189518 tomorrow_comes_today 
+  "
+
+test_that("output contains the list of zips songs for 14 rows", {
+  output <- as.data.frame(read.table(header = FALSE, col.names=c("name"), text = "
+    19_2000
+    clint_eastwood
+    tomorrow_comes_today
+  "))
+  expect_that(get_zips_songs_list(input), equals(output))
+})
+```
+
+---
+
+## Example: Song Kata - Source
+```{r results='asis', echo=TRUE, message=FALSE, tidy=FALSE}
+get_zips_songs_list <- function (input) {
+  result_count <- get_number_of_result_list(input)
+  data <- read_input_into_dataframe(input)
+  
+  data$i <- as.numeric(rownames(data))
+  data$qi <- data$fi/(1/data$i)
+  head(arrange(data, desc(qi), i) %.% select(name),result_count)
+}
+
+
+get_number_of_result_list <- function (input) {
+  as.numeric(as.character(as.data.frame(read.table(header = FALSE, text = input))[1,2]))
+}
+
+
+
+read_input_into_dataframe <- function(input) {
+  as.data.frame(read.table(header = FALSE, text = input, col.names=c("fi","name"), skip=2))
+}
+```
 
 ---
 
@@ -128,6 +172,18 @@ http://127.0.0.1:25127/custom/googleVis/MotionChartID22f695fd46.html
 
 ## Example: Interactivity
 > 1. Interactive web site with Shiny
-http://ottawa:5507
+http://ottawa:5507 (http://192.168.8.24:5507)
+
+---
+
+## References
+1. Hadley Wickham - Advanced R Programming (http://adv-r.had.co.nz/)
+2. Ramnathv - Slidify (http://slidify.org/)
+3. RStudio - Shiny (http://shiny.rstudio.com/) 
+
+---
+
+## Questions
+and Answers
 
 ---
